@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using CommunityToolkit.Mvvm.Messaging;
@@ -9,7 +10,8 @@ using OperationCanceledException = System.OperationCanceledException;
 
 namespace Maui_AndroidForegroundService.Platforms.Android;
 
-[Service]
+[Service(Name = "Maui_AndroidForegroundService.Platforms.Android.LongRunningTaskServcie",
+         ForegroundServiceType = ForegroundService.TypeDataSync)]
 public class LongRunningTaskServcie : Service
 {
     CancellationTokenSource _cts;
